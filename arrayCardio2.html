@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <script>
+        const peoples = [
+            {name: "west", year: 1998, id: 5},
+            {name: "kait", year: 1986, id: 6},
+            {name: "irv", year: 1970, id: 7},
+            {name: "lux", year: 2015, id: 8},
+        ]
+
+        // Array.prototype.some() checks is at least one person in array
+        const CurrentYear = new Date().getFullYear();
+        const adult = peoples.some(person => CurrentYear - person.year >= 19 && person.name === "west")
+        console.log(adult);
+
+        // Array.prototype.every() checks every person in array
+        const adult1 = peoples.every(person => CurrentYear - person.year >= 19)
+        console.log(adult1);
+
+        // Array.prototype.find() it is just like filter() but instead returns just the one you are looking for
+        const find = peoples.find(person => person.id === 8)
+        console.table(find);
+
+        // Array.prototype.findIndex() find the index by id
+        const findIndex = peoples.findIndex(person => person.id === 6)
+        // console.log(findIndex);
+        const newPeoples = [
+            ...peoples.slice(0, findIndex),
+            ...peoples.slice(findIndex + 1)
+        ]
+        console.table(peoples);
+        console.table(newPeoples)
+    </script>
+</head>
+<body>
+    
+</body>
+</html>
